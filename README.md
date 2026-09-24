@@ -1,4 +1,4 @@
-# [grafana-loki-doc-pt-br][page]
+# [grafana-loki-docs-pt-br][page]
 
 [![Arquivo README em inglês][badge-readme-en]][readme-en]
 [![Arquivo README em português brasileiro][badge-readme-pt-br]][readme-pt-br]
@@ -36,7 +36,7 @@ Documentação licenciada sob a
 [Licença Pública Geral GNU Affero Versão 3][license].<br/>
 A obra original foi traduzida do inglês para o português brasileiro.
 
-[badge-contributors]: https://img.shields.io/github/contributors/docsdevbr/grafana-loki-doc-pt-br
+[badge-contributors]: https://img.shields.io/github/contributors/docsdevbr/grafana-loki-docs-pt-br
 
 [badge-github-sponsors]: https://img.shields.io/github/sponsors/docsdevbr
 
@@ -46,13 +46,13 @@ A obra original foi traduzida do inglês para o português brasileiro.
 
 [badge-readme-pt-br]: https://img.shields.io/badge/lang-pt--br-dark--green
 
-[badge-reuse]: https://api.reuse.software/badge/github.com/docsdevbr/grafana-loki-doc-pt-br
+[badge-reuse]: https://api.reuse.software/badge/github.com/docsdevbr/grafana-loki-docs-pt-br
 
 [code-of-conduct]: https://github.com/docsdevbr/.github/blob/main/CODE_OF_CONDUCT.md
 
 [contributing]: https://github.com/docsdevbr/.github/blob/main/CONTRIBUTING.md
 
-[contributors]: https://github.com/docsdevbr/grafana-loki-doc-pt-br/graphs/contributors
+[contributors]: https://github.com/docsdevbr/grafana-loki-docs-pt-br/graphs/contributors
 
 [github-sponsors]: https://github.com/sponsors/docsdevbr
 
@@ -64,6 +64,6 @@ A obra original foi traduzida do inglês para o português brasileiro.
 
 [readme-pt-br]: README.md
 
-[reuse]: https://api.reuse.software/info/github.com/docsdevbr/grafana-loki-doc-pt-br
+[reuse]: https://api.reuse.software/info/github.com/docsdevbr/grafana-loki-docs-pt-br
 
 [sponsor]: https://pt.docs.dev.br/sponsor.html
