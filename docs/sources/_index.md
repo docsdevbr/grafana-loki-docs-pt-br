@@ -30,7 +30,7 @@ hero:
   description: >-
     O Grafana Loki é um conjunto de componentes de código aberto que podem ser
     combinados para formar uma solução completa de registro de logs.
-    Um índice pequeno e pedaços altamente compactados simplificam a operação e
+    Um índice pequeno e chunks altamente compactados simplificam a operação e
     reduzem significativamente o custo do Loki.
 cards:
   title_class: pt-0 lh-1
@@ -75,7 +75,7 @@ cards:
 Ao contrário de outros sistemas de registro, o Loki é construído em torno da
 ideia de indexar apenas metadados sobre os rótulos dos seus logs (assim como os
 rótulos do Prometheus).
-Os dados de log em si são então compactados e armazenados em pedaços em serviços
+Os dados de log em si são então compactados e armazenados em chunks em serviços
 de armazenamento de objetos como o Amazon Simple Storage Service (S3) ou o
 Google Cloud Storage (GCS), ou até mesmo localmente no sistema de arquivos.
 
@@ -355,10 +355,10 @@ limits_config:
 ```
 
 Dividir consultas por intervalo reduz a carga por requisição ao fragmentar
-consultas que abrangem grandes períodos em pedaços menores processados em
+consultas que abrangem grandes períodos em chunks menores processados em
 paralelo.
 Para implantações em nó único sujeitas a uma carga constante de dashboards,
-considere também aumentar o tamanho dos pedaços para reduzir o número total de
+considere também aumentar o tamanho dos chunks para reduzir o número total de
 leituras:
 
 ```yaml
@@ -426,10 +426,10 @@ configuração de um período de retenção, são:
 - O Compactor deve estar em execução.
   Em implantações monolíticas, ele pode ser desativado inadvertidamente.
 - A exclusão não é imediata.
-  O Compactor é executado segundo um cronograma e marca os pedaços para exclusão
+  O Compactor é executado segundo um cronograma e marca os chunks para exclusão
   apenas após um período de carência configurável (`retention_delete_delay`).
 - Ao utilizar armazenamento no sistema de arquivos, o tamanho do diretório de
-  pedaços pode não diminuir visivelmente de imediato.
+  chunks pode não diminuir visivelmente de imediato.
   O Compactor marca os arquivos para exclusão primeiro e, em seguida, os remove
   em execuções subsequentes.
 

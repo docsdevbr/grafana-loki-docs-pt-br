@@ -55,31 +55,31 @@ etapas:
      [exemplos](https://grafana.com/docs/loki/<LOKI_VERSION>/configure/examples/)
      para provedores específicos de armazenamento de objetos que você pode
      modificar.
-2. Implante o [Grafana Alloy](https://grafana.com/docs/alloy/latest/) para
+1. Implante o [Grafana Alloy](https://grafana.com/docs/alloy/latest/) para
    coletar logs de suas aplicações.
    1. No Kubernetes, implante o Grafana Alloy utilizando o Helm chart.
       Configure o Grafana Alloy para coletar logs do seu cluster Kubernetes e
       adicione os detalhes do endpoint do Loki.
       Consulte a seção a seguir para ver um exemplo de arquivo de configuração
       do Grafana Alloy.
-   2. Adicione
+   1. Adicione
       [rótulos](https://grafana.com/docs/loki/<LOKI_VERSION>/get-started/labels/)
       aos seus logs seguindo nossas
       [melhores práticas](https://grafana.com/docs/loki/<LOKI_VERSION>/get-started/labels/bp-labels/).
       A maioria das pessoas usuárias do Loki começa adicionando rótulos que
       descrevem a origem dos logs, como região, cluster ou ambiente.
-3. Implante o [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/)
+1. Implante o [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/)
    ou o [Grafana Cloud](https://grafana.com/docs/grafana-cloud/quickstart/) e
    configure uma
    [fonte de dados do Loki](https://grafana.com/docs/grafana/latest/datasources/loki/configure-loki-data-source/).
-4. Selecione o recurso
+1. Selecione o recurso
    [Explore](https://grafana.com/docs/grafana/latest/explore/) no menu principal
    do Grafana.
    Para
    [visualizar logs no Explore](https://grafana.com/docs/grafana/latest/explore/logs-integration/):
    1. Escolha um intervalo de tempo.
-   2. Selecione a fonte de dados do Loki.
-   3. Use [LogQL](https://grafana.com/docs/loki/<LOKI_VERSION>/query/) no
+   1. Selecione a fonte de dados do Loki.
+   1. Use [LogQL](https://grafana.com/docs/loki/<LOKI_VERSION>/query/) no
       [editor de consultas](https://grafana.com/docs/grafana/latest/datasources/loki/query-editor/),
       utilize a visualização Builder para explorar seus rótulos ou selecione
       consultas de exemplo pré-configuradas usando o botão **Kick start your
@@ -103,11 +103,11 @@ Este exemplo de arquivo `values.yaml` está configurado para:
 1. Instale o Loki usando o
    [Helm chart](https://grafana.com/docs/loki/<LOKI_VERSION>/setup/install/helm/install-scalable/).
 
-2. Implante o Grafana Alloy usando o Helm chart.
+1. Implante o Grafana Alloy usando o Helm chart.
    Consulte [Instalar o Grafana Alloy no Kubernetes](https://grafana.com/docs/alloy/latest/get-started/install/kubernetes/)
    para obter mais informações.
 
-3. Crie um arquivo `values.yaml` com base no exemplo a seguir, certificando-se
+1. Crie um arquivo `values.yaml` com base no exemplo a seguir, certificando-se
    de atualizar o valor de `forward_to = [loki.write.endpoint.receiver]`:
 
    ```yaml
@@ -138,7 +138,7 @@ Este exemplo de arquivo `values.yaml` está configurado para:
          }
    ```
 
-4. Em seguida, instale o Alloy no seu cluster Kubernetes usando:
+1. Em seguida, instale o Alloy no seu cluster Kubernetes usando:
 
    ```bash
    helm install alloy grafana/alloy -f ./values.yaml
