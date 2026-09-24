@@ -82,7 +82,8 @@ etapas:
    3. Use [LogQL](https://grafana.com/docs/loki/<LOKI_VERSION>/query/) no
       [editor de consultas](https://grafana.com/docs/grafana/latest/datasources/loki/query-editor/),
       utilize a visualização Builder para explorar seus rótulos ou selecione
-      consultas de exemplo pré-configuradas usando o botão **Kick start your query**.
+      consultas de exemplo pré-configuradas usando o botão **Kick start your
+      query**.
 
 **Próximos passos:** Saiba mais sobre a linguagem de consulta do Loki, o
 [LogQL](https://grafana.com/docs/loki/<LOKI_VERSION>/query/).
