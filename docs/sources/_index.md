@@ -102,9 +102,9 @@ explica o que é o Loki, como ele funciona e como os componentes se integram.
 - **Entenda os rótulos.**
   O modelo de indexação do Loki baseia-se em rótulos, o que difere da maioria
   dos sistemas de log.
-  Leia sobre [Labels](https://grafana.com/docs/loki/latest/get-started/labels/)
+  Leia sobre [Rótulos](https://grafana.com/docs/loki/latest/get-started/labels/)
   e as
-  [melhores práticas para labels](https://grafana.com/docs/loki/latest/get-started/labels/bp-labels/)
+  [melhores práticas para rótulos](https://grafana.com/docs/loki/latest/get-started/labels/bp-labels/)
   logo no início — como você rotula seus logs afeta diretamente o desempenho das
   consultas e os custos de armazenamento.
 - **Aprenda LogQL.**
@@ -128,7 +128,7 @@ cursos práticos e autoguiados relevantes para o Loki:
 - **[Envie dados de coletores externos](https://grafana.com/docs/learning-hub/)**
   — Aprenda a enviar logs para o Loki usando OpenTelemetry (OTLP) ou a API HTTP
   e escolha o método ideal para sua configuração.
-- **[Explore os dados da sua infraestrutura com os aplicativos de Drilldown do Grafana](https://grafana.com/docs/learning-hub/)**
+- **[Explore os dados da sua infraestrutura com as aplicações de Drilldown do Grafana](https://grafana.com/docs/learning-hub/)**
   — Explore visualmente os logs do Loki sem escrever consultas LogQL, utilizando
   a aplicação Logs Drilldown para filtrar por rótulos, detectar padrões e
   investigar erros.
@@ -163,9 +163,9 @@ observabilidade.
 Escolher campos inadequados como rótulos é a causa mais comum de baixo
 desempenho em consultas e alto consumo de recursos.
 
-**Labels** definem um fluxo de logs.
-Cada combinação única de valores de rótulo cria um novo fluxo, que é armazenado e
-indexado separadamente.
+**Rótulos** definem um fluxo de logs.
+Cada combinação única de valores de rótulo cria um novo fluxo, que é armazenado
+e indexado separadamente.
 
 - ✅ Use rótulos para dimensões de **baixa cardinalidade** pelas quais você
   sempre filtrará: `env`, `cluster`, `namespace`, `app`, `job`.
@@ -237,8 +237,9 @@ não vazio entre as seguintes chaves de rótulo, nesta ordem:
 
 **Causas comuns:**
 
-- O remetente de logs (Alloy, OTel Collector, kube-logging-operator) não está
-  encaminhando metadados do Kubernetes como rótulos de fluxo.
+- O log shipper (remetente de logs, por exemplo, Alloy, OTel Collector,
+  kube-logging-operator) não está encaminhando metadados do Kubernetes como
+  rótulos de fluxo.
 - O nome do rótulo utiliza notação de ponto (`service.name`).
   O Loki normaliza os nomes dos rótulos no servidor, substituindo pontos por
   sublinhados (por exemplo, `service.name` torna-se `service_name`).
@@ -246,14 +247,14 @@ não vazio entre as seguintes chaves de rótulo, nesta ordem:
 
 **Verifique os rótulos de fluxo** na seção Explore.
 Se nenhuma das chaves mencionadas acima estiver presente como rótulo, configure
-o remetente de logs para incluí-las.
+o log shipper para incluí-las.
 No caso do Alloy, certifique-se de que `loki.source.kubernetes` ou
 `discovery.kubernetes` esteja repassando os metadados do pod.
 
 Você pode personalizar a lista de rótulos verificados pelo Loki definindo
 `discover_service_name` em `limits_config`.
 
-### Como corrijo erros de "limite de taxa de ingestão excedido" (HTTP 429)?
+### Como corrijo erros de "ingestion rate limit exceeded" (HTTP 429)?
 
 Um erro 429 do Loki indica que um limite de taxa de ingestão foi atingido.
 O Loki aplica limites tanto globalmente quanto por fluxo.
@@ -275,7 +276,7 @@ limits_config:
 ```
 
 **Para identificar quais fluxos são os responsáveis**, verifique a mensagem de
-erro no seu remetente de logs.
+erro no seu log shipper.
 Ela inclui os rótulos do fluxo causador do problema.
 Você também pode consultar o endpoint de métricas do Loki para a métrica `loki_ingester_streams_created_total`, detalhada por tenant.
 
@@ -297,7 +298,7 @@ um pico inesperado antes de aumentar os limites.
 Quando o Grafana e o Loki são executados como contêineres Docker separados, o
 `localhost` dentro do contêiner do Grafana refere-se ao próprio contêiner do
 Grafana, e não à máquina host ou ao contêiner do Loki.
-Essa é a configuração incorreta mais comum entre novas pessoas usuárias.
+Essa é a configuração incorreta mais comum entre pessoas usuárias iniciantes.
 
 **URL da fonte de dados correta no Docker Compose:**
 

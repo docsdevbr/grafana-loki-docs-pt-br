@@ -45,9 +45,9 @@ etapas:
 ![Etapas de implementação do Loki](loki-install.png)
 
 1. Instale o Loki no Kubernetes no modo monolítico (binário único), utilizando o
-   [Helm chart](https://grafana.com/docs/loki/<LOKI_VERSION>/setup/install/helm/install-monolithic/)
+   [chart do Helm](https://grafana.com/docs/loki/<LOKI_VERSION>/setup/install/helm/install-monolithic/)
    recomendado.
-   Forneça ao Helm chart os detalhes de autenticação do seu armazenamento de
+   Forneça ao chart do Helm os detalhes de autenticação do seu armazenamento de
    objetos.
    - [Opções de armazenamento](https://grafana.com/docs/loki/<LOKI_VERSION>/operations/storage/)
    - [Referência de configuração](https://grafana.com/docs/loki/<LOKI_VERSION>/configure/)
@@ -57,7 +57,7 @@ etapas:
      modificar.
 1. Implante o [Grafana Alloy](https://grafana.com/docs/alloy/latest/) para
    coletar logs de suas aplicações.
-   1. No Kubernetes, implante o Grafana Alloy utilizando o Helm chart.
+   1. No Kubernetes, implante o Grafana Alloy utilizando o chart do Helm.
       Configure o Grafana Alloy para coletar logs do seu cluster Kubernetes e
       adicione os detalhes do endpoint do Loki.
       Consulte a seção a seguir para ver um exemplo de arquivo de configuração
@@ -91,7 +91,7 @@ etapas:
 ## Exemplo de arquivo de configuração do Grafana Alloy para enviar logs de Pods do Kubernetes para o Loki
 
 Para implantar o Grafana Alloy a fim de coletar logs de Pods do seu cluster
-Kubernetes e enviá-los para o Loki, você pode usar um Helm chart e um arquivo
+Kubernetes e enviá-los para o Loki, você pode usar um chart do Helm e um arquivo
 `values.yaml`.
 
 Este exemplo de arquivo `values.yaml` está configurado para:
@@ -101,9 +101,9 @@ Este exemplo de arquivo `values.yaml` está configurado para:
 - Enviar os logs para o seu cluster Loki usando o ID de tenant `local`.
 
 1. Instale o Loki usando o
-   [Helm chart](https://grafana.com/docs/loki/<LOKI_VERSION>/setup/install/helm/install-scalable/).
+   [chart do Helm](https://grafana.com/docs/loki/<LOKI_VERSION>/setup/install/helm/install-scalable/).
 
-1. Implante o Grafana Alloy usando o Helm chart.
+1. Implante o Grafana Alloy usando o chart do Helm.
    Consulte [Instalar o Grafana Alloy no Kubernetes](https://grafana.com/docs/alloy/latest/get-started/install/kubernetes/)
    para obter mais informações.
 

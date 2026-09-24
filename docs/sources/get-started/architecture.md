@@ -17,8 +17,8 @@ menuTitle: Arquitetura
 description: Descreve a arquitetura do Grafana Loki.
 weight: 400
 aliases:
-    - ../architecture/
-    - ../fundamentals/architecture/
+  - ../architecture/
+  - ../fundamentals/architecture/
 ---
 
 # Arquitetura do Loki
@@ -68,17 +68,17 @@ Para mais informações, consulte
 O Grafana Loki possui dois tipos principais de arquivos: **índice** e
 **chunks**.
 
-- O [**índice**](#index-format) é um índice que indica onde encontrar logs para
-  um conjunto específico de rótulos.
-- O [**chunk**](#chunk-format) é um contêiner para entradas de log referentes a
-  um conjunto específico de rótulos.
+- O [**índice**](#formato-do-index) é um índice que indica onde encontrar logs
+  para um conjunto específico de rótulos.
+- O [**chunk**](#formato-do-chunk) é um contêiner para entradas de log
+  referentes a um conjunto específico de rótulos.
 
 ![Formato de dados do Loki: chunks e índices](../chunks_diagram.png)
 
 O diagrama acima apresenta uma visão geral dos dados armazenados no chunk e dos
 dados armazenados no índice.
 
-#### Formato de índice
+#### Formato do índice
 
 Atualmente, há dois formatos de índice suportados para uso com armazenamento
 único com o *index shipper*:
@@ -102,7 +102,7 @@ Atualmente, há dois formatos de índice suportados para uso com armazenamento
   O [Bolt](https://github.com/boltdb/bolt) é um armazenamento de chave-valor
   transacional de baixo nível, escrito em Go.
 
-#### Formato de chunk
+#### Formato do chunk
 
 Um chunk é um contêiner para linhas de log de um fluxo (um conjunto único de
 rótulos) referente a um intervalo de tempo específico.
@@ -158,7 +158,7 @@ Ela é utilizada para armazenar nomes e valores de rótulos provenientes de
 Observe que as strings e os comprimentos dos rótulos dentro da seção
 `structuredMetadata` são armazenados de forma compactada.
 
-#### Formato de bloco
+#### Formato do bloco
 
 Um bloco é composto por uma série de entradas, sendo cada uma delas uma linha de
 log individual.
@@ -187,20 +187,20 @@ rótulos na seção `structuredMetadata` do chunk.
 
 Em linhas gerais, o caminho de escrita no Loki funciona da seguinte forma:
 
-1. O distribuidor recebe uma requisição HTTP POST contendo fluxos e linhas de
+1. O distributor recebe uma requisição HTTP POST contendo fluxos e linhas de
    log.
-1. O distribuidor aplica uma função de hash a cada fluxo contido na requisição
-   para determinar a instância do ingestor para a qual ele deve ser enviado, com
+1. O distributor aplica uma função de hash a cada fluxo contido na requisição
+   para determinar a instância do ingester para a qual ele deve ser enviado, com
    base nas informações do anel de hash consistente.
-1. O distribuidor envia cada fluxo para o ingestor apropriado e suas réplicas
+1. O distributor envia cada fluxo para o ingester apropriado e suas réplicas
    (com base no fator de replicação configurado).
-1. O ingestor recebe o fluxo com as linhas de log e cria um chunk ou anexa dados
+1. O ingester recebe o fluxo com as linhas de log e cria um chunk ou anexa dados
    a um chunk existente para aquele fluxo.
    Um chunk é único por tenant e por conjunto de rótulos.
-1. O ingestor confirma a escrita.
-1. O distribuidor aguarda que a maioria (quórum) dos ingestores confirme suas
+1. O ingester confirma a escrita.
+1. O distributor aguarda que a maioria (quórum) dos ingesters confirme suas
    escritas.
-1. O distribuidor responde com sucesso (código de status 2xx) caso tenha
+1. O distributor responde com sucesso (código de status 2xx) caso tenha
    recebido confirmações de pelo menos um quórum de escritas, ou com um erro
    (código de status 4xx ou 5xx) caso as operações de escrita tenham falhado.
 
@@ -211,24 +211,24 @@ componentes envolvidos no caminho de escrita.
 
 Em linhas gerais, o caminho de leitura no Loki funciona da seguinte forma:
 
-1. O frontend de consultas (query frontend) recebe uma requisição HTTP GET
+1. O query frontend (frontend de consultas) recebe uma requisição HTTP GET
    contendo uma consulta LogQL.
-1. O frontend de consultas divide a consulta em subconsultas e as encaminha para
-   o agendador de consultas (query scheduler).
-1. O consultor (querier) obtém as subconsultas do agendador.
-1. O consultor encaminha a consulta a todos os ingestores para buscar dados em
+1. O query frontend divide a consulta em subconsultas e as encaminha para o
+   query scheduler (agendador de consultas).
+1. O querier (consultor) obtém as subconsultas do scheduler.
+1. O querier encaminha a consulta a todos os ingesters para buscar dados em
    memória.
-1. Os ingestores retornam dados em memória que correspondam à consulta, caso
+1. Os ingesters retornam dados em memória que correspondam à consulta, caso
    existam.
-1. O consultor carrega dados do armazenamento de apoio (backing store) sob
-   demanda e executa a consulta sobre eles, caso os ingestores não tenham
-   retornado dados ou tenham retornado dados insuficientes.
-1. O consultor processa todos os dados recebidos, realiza a desduplicação e
-   retorna o resultado da subconsulta ao frontend de consultas.
-1. O frontend de consultas aguarda a conclusão e o retorno de todas as
-   subconsultas por parte dos consultores.
-1. O frontend de consultas combina os resultados individuais em um resultado
-   final e o retorna ao cliente.
+1. O querier carrega dados do backing store (armazenamento de apoio) sob demanda
+   e executa a consulta sobre eles, caso os ingesters não tenham retornado dados
+   ou tenham retornado dados insuficientes.
+1. O querier processa todos os dados recebidos, realiza a desduplicação e
+   retorna o resultado da subconsulta ao query frontend.
+1. O query frontend aguarda a conclusão e o retorno de todas as subconsultas por
+   parte dos queriers.
+1. O query frontend combina os resultados individuais em um único resultado e o
+   retorna ao cliente.
 
 Consulte [Componentes](../components/) para uma descrição mais detalhada dos
 componentes envolvidos no fluxo de leitura.
