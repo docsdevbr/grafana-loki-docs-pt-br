@@ -25,8 +25,8 @@ aliases:
 {{< youtube id="_hv4i84Z68s" >}}
 
 O Loki é um sistema modular composto por vários componentes que podem ser
-executados em conjunto (no modo "binário único", com o alvo `all`), em grupos
-lógicos (no modo "implantação simples e escalável", com os alvos `read`,
+executados em conjunto (no modo "binário único", com o target `all`), em grupos
+lógicos (no modo "implantação simples e escalável", com os targets `read`,
 `write`, `backend`) ou individualmente (no modo "microsserviço").
 Para mais informações, consulte [Modos de implantação](https://grafana.com/docs/loki/<LOKI_VERSION>/get-started/deployment-modes/).
 

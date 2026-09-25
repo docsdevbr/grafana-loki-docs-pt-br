@@ -418,7 +418,7 @@ com que os alertas oscilem ou nunca sejam resolvidos corretamente.
 ### Por que minha política de retenção de logs não está excluindo dados antigos?
 
 A retenção no Loki é gerenciada pelo **Compactor**, e não diretamente pelo
-ingestor ou pelo backend de armazenamento.
+ingester ou pelo backend de armazenamento.
 Algumas razões comuns para a persistência de dados antigos, mesmo após a
 configuração de um período de retenção, são:
 

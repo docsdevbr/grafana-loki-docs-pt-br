@@ -81,7 +81,7 @@ A implantação simple scalable é a configuração padrão instalada pelo
 Esse modo de implantação é a maneira mais fácil de implantar o Loki em escala.
 Ele equilibra a implantação no [modo monolítico](#modo-monolítico) e a
 implantação de cada componente como um
-[microsserviço separado](#microservices-mode).
+[microsserviço separado](#modo-de-microsserviços).
 A implantação simple scalable também é chamada de SSD.
 
 {{< admonition type="note" >}}
@@ -91,9 +91,9 @@ O Loki utiliza armazenamento de objetos.
 {{< /admonition >}}
 
 O modo de implantação simple scalable do Loki separa os caminhos de execução
-em alvos de leitura, escrita e backend.
-Esses alvos podem ser escalados de forma independente, permitindo personalizar a
-implantação do Loki para atender às necessidades do seu negócio em relação à
+em targets de leitura, escrita e backend.
+Esses targets podem ser escalados de forma independente, permitindo personalizar
+a implantação do Loki para atender às necessidades do seu negócio em relação à
 ingestão e consulta de logs, de modo que os custos de infraestrutura estejam
 mais alinhados ao seu padrão de uso da ferramenta.
 
@@ -108,18 +108,18 @@ facilidade operacional.
 Cada um dos três caminhos de execução no modo simple scalable é ativado
 adicionando-se os seguintes argumentos ao Loki durante a inicialização:
 
-- `-target=write` - O alvo de escrita possui estado e é controlado por um
+- `-target=write` - O target de escrita possui estado e é controlado por um
   StatefulSet do Kubernetes.
   Ele contém os seguintes componentes:
   * Distributor
   * Ingester
-- `-target=read` - O alvo de leitura não possui estado e pode ser executado como
-  um Deployment do Kubernetes com escalonamento automático (observe que, no
+- `-target=read` - O target de leitura não possui estado e pode ser executado
+  como um Deployment do Kubernetes com escalonamento automático (observe que, no
   chart oficial do Helm, ele é implantado atualmente como um StatefulSet).
   Ele contém os seguintes componentes:
   * Query Frontend
   * Querier
-- `-target=backend` - O alvo de backend possui estado e é controlado por um
+- `-target=backend` - O target de backend possui estado e é controlado por um
   StatefulSet do Kubernetes.
   Contém os seguintes componentes:
   - Compactor
@@ -159,7 +159,7 @@ Para a versão 3.3, os componentes são:
 - Table Manager (obsoleto)
 
 {{< admonition type="tip" >}}
-Você pode visualizar a lista completa de alvos para a sua versão do Loki
+Você pode visualizar a lista completa de targets para a sua versão do Loki
 executando o Loki com a flag `-list-targets`; por exemplo:
 
 ```bash
