@@ -9,8 +9,8 @@
 # https://github.com/docsdevbr/grafana-loki-docs-pt-br/blob/-/LICENSES/AGPL-3.0-only.txt
 
 source_url: https://github.com/grafana/loki/blob/v3.7.8/docs/sources/get-started/_index.md
-revision: 94a416ec7ef6492ef7f4b82ec2ef81ea0eb64b58
-status: ready
+source_revision: 94a416ec7ef6492ef7f4b82ec2ef81ea0eb64b58
+translation_status: ready
 
 title: Primeiros passos com o Grafana Loki
 menuTitle: Primeiros passos

@@ -9,15 +9,15 @@
 # https://github.com/docsdevbr/grafana-loki-docs-pt-br/blob/-/LICENSES/AGPL-3.0-only.txt
 
 source_url: https://github.com/grafana/loki/blob/v3.7.8/docs/sources/get-started/deployment-modes.md
-revision: c8cfd0aca3505ed5513cdee9668ca6d2f9905f56
-status: ready
+source_revision: c8cfd0aca3505ed5513cdee9668ca6d2f9905f56
+translation_status: ready
 
 menuTitle: Modos de implantação
 title: Modos de implantação do Loki
 description: Descreve os três diferentes modelos de implantação do Loki.
 weight: 600
 aliases:
-    - ../fundamentals/architecture/deployment-modes
+  - ../fundamentals/architecture/deployment-modes
 ---
 
 # Modos de implantação do Loki

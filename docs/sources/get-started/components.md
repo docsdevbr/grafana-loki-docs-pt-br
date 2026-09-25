@@ -9,8 +9,8 @@
 # https://github.com/docsdevbr/grafana-loki-docs-pt-br/blob/-/LICENSES/AGPL-3.0-only.txt
 
 source_url: https://github.com/grafana/loki/blob/v3.7.8/docs/sources/get-started/components.md
-revision: 624a93dfa7ae0af059ef96bdd19f2334d8366368
-status: ready
+source_revision: 624a93dfa7ae0af059ef96bdd19f2334d8366368
+translation_status: ready
 
 title: Componentes do Loki
 menuTitle: Componentes

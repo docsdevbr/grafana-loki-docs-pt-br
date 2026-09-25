@@ -9,8 +9,8 @@
 # https://github.com/docsdevbr/grafana-loki-docs-pt-br/blob/-/LICENSES/AGPL-3.0-only.txt
 
 source_url: https://github.com/grafana/loki/blob/v3.7.8/docs/sources/get-started/architecture.md
-revision: 9979490731774ce86b7204004e6a0889159cd844
-status: ready
+source_revision: 9979490731774ce86b7204004e6a0889159cd844
+translation_status: ready
 
 title: Arquitetura do Loki
 menuTitle: Arquitetura

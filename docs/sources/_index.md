@@ -9,8 +9,8 @@
 # https://github.com/docsdevbr/grafana-loki-docs-pt-br/blob/-/LICENSES/AGPL-3.0-only.txt
 
 source_url: https://github.com/grafana/loki/blob/v3.7.8/docs/sources/_index.md
-revision: 3483f0f5e93ba0688b28c012dea035c3f020445a
-status: ready
+source_revision: 3483f0f5e93ba0688b28c012dea035c3f020445a
+translation_status: ready
 
 title: Grafana Loki
 description: >-
