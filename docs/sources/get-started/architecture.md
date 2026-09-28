@@ -34,7 +34,7 @@ componentes) aquele binário irá executar.
 
 Para começar de forma simples, execute o Grafana Loki no modo "binário único"
 (com todos os componentes rodando simultaneamente em um único processo) ou no
-modo "implantação escalável simples" (que agrupa os componentes em partes de
+modo "implantação simple scalable" (que agrupa os componentes em partes de
 leitura, escrita e backend).
 
 O Grafana Loki foi projetado para permitir a reimplementação fácil de um cluster
